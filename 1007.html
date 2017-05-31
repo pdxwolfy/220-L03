@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="show.js"></script>
+  </head>
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+
+      /* global show */
+
+      foo = {
+        a: 1,
+        bar: function() {
+          show.show(this.baz());
+        },
+        baz: function() {
+          return this;
+        }
+      };
+
+      foo.bar();             // undefined
+      var qux = foo.bar;
+      qux();                 // nothing
+
+    </script>
+  </body>
+</html>

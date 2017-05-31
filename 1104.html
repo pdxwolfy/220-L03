@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="show.js"></script>
+  </head>
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+
+      /* global show */
+
+      var a = 1;
+      var obj = {
+        a: 2,
+        func: function() {
+          show.show(this.a);
+        }
+      };
+
+      obj.func();            // 2
+      obj.func.call();       // 1
+      obj.func.call(this);   // 1
+      obj.func(obj);         // 2
+
+      var obj2 = { a: 3 };
+      obj.func.call(obj2);   // 3
+
+    </script>
+  </body>
+</html>
